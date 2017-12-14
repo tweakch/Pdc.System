@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Channels" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Db\ITable.cs" />
     <Compile Include="Data\Db\PdcTable.cs" />
     <Compile Include="Data\State\PdcProcessing.cs" />
     <Compile Include="Data\State\EProcessing.cs" />
