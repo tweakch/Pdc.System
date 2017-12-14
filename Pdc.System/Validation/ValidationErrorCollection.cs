@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Pdc.System.Validation
 {
+    /// <summary>
+    ///     Simply wraps a <see cref="List{T}" /> where T is of type <see cref="IValidationError" />
+    /// </summary>
     public class ValidationErrorCollection : IValidationErrorCollection
     {
         private readonly List<IValidationError> _errors;

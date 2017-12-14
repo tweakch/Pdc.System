@@ -1,10 +1,11 @@
 using System.Linq;
 using System.Net.Http;
+using Pdc.Net.Http.Configuration;
 using Pdc.System.Validation;
 
-namespace Pdc.Net.Http
+namespace Pdc.Net.Http.Validation
 {
-    public class HttpContentValidator
+    public class HttpContentValidator : IHttpContentValidator
     {
         private abstract class AValidationResult : IValidationResult
         {
@@ -31,7 +32,7 @@ namespace Pdc.Net.Http
         }
 
 
-        public static IValidationResult Validate(HttpContent content, IHttpClientConfiguration configuration)
+        public IValidationResult Validate(HttpContent content, IHttpClientConfiguration configuration)
         {
             IValidationErrorCollection errors = new ValidationErrorCollection();
 
