@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pdc.System.Data.State
+﻿namespace Pdc.System.Data.State
 {
     /// <summary>
-    /// Helper class to work with EProcessing flags. 
+    /// Helper class to work with EProcessing flags.
     /// </summary>
     public abstract class PdcProcessing
     {
@@ -53,7 +48,7 @@ namespace Pdc.System.Data.State
             // perform a bitwise logical OR operation with the flag
             // to SET the flag on a mask
 
-            //Example: 
+            //Example:
             //set flag 100000 on mask 000101 to get mask* = 100101
             //         mask: 000101
             //         flag: 100000
@@ -85,7 +80,7 @@ namespace Pdc.System.Data.State
             //perform a bitwise logical AND operation with the inverse of the flag
             //to UNSET the flag on a mask
 
-            //Example: 
+            //Example:
             //turn off flag 100000 on mask 100101 to get mask* = 000101
             //         mask: 100101
             //        ~flag: 011111
