@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Pdc.Net
+namespace Pdc.Net.Http
 {
     interface IHttpGetClient
     {

@@ -1,10 +1,11 @@
-﻿using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
+using Pdc.Net.Http.Validation;
 
-namespace Pdc.Net
+namespace Pdc.Net.Http.Configuration
 {
     public interface IHttpClientConfiguration
     {
         HttpContentHeaders ValidHeaders { get; set; }
+        IHttpContentValidator ContentValidator { get; }
     }
 }
