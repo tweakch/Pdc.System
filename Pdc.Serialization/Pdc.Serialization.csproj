@@ -50,8 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Json\JsonConverter.cs" />
+    <Compile Include="Json\JsonDeserializer.cs" />
     <Compile Include="Json\GoogleStyleguideSerializerSettings.cs" />
     <Compile Include="Json\JsonExtensions.cs" />
+    <Compile Include="Json\JsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
