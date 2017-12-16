@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Pdc.System
+namespace Pdc.System.Process
 {
     /// <summary>
-    ///     Provides a template process for Transmitter classes to send data through the IClient interface
+    ///     Provides a template process for Transmitter classes to send data through an IClient interface
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    // #refactor Extract to Pdc.Data.Process namespace
     public abstract class PdcTransmitterProcess<T> : ITransmitterProcess where T : IClientProvider
     {
         private readonly Action _afterRun;
@@ -20,6 +19,9 @@ namespace Pdc.System
             _afterRun = OnAfterRun;
         }
 
+        /// <summary>
+        ///     Runs the transmitter process
+        /// </summary>
         public void Run()
         {
             IClientProvider provider = Activator.CreateInstance<T>();

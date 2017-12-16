@@ -1,16 +1,24 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Pdc.Framework.System</id> 
+    <id>Pdc.System</id> 
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>Pdc.System</title>
+    <authors>Alexander Klee</authors>
+    <owners>tweakch</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Basic classes for working with databases and services</description>
+    <summary>Pdc.System provides basic classes for working with databases and services.</summary>
     <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <copyright>Copyright ©2017 tweakch</copyright>
     <tags>pdc framework system data process validation</tags>
+    <iconUrl>http://www.pdc-online.com/pdc_redesign/images/logo.png</iconUrl>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="10.0" />
+    </dependencies>
   </metadata>
+  <files>
+    <file src="README.md" target="" />
+  </files>
 </package>
