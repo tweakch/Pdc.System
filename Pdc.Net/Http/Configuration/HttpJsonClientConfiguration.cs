@@ -20,7 +20,7 @@ namespace Pdc.Net.Http.Configuration
         {
             public IValidationResult Validate(HttpContent content, IHttpClientConfiguration configuration)
             {
-                throw new NotImplementedException();
+                return null;
             }
         }
     }
