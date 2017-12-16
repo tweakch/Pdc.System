@@ -70,7 +70,7 @@ namespace Pdc.Notation.Test
 
             var expectedJson = $"{{\"name\":\"{test.Name}\",\"number\":{test.Number},\"id\":\"{test.Id}\",\"currentDate\":\"{test.CurrentDate.ToString("O")}\"}}";
             
-            var instance = expectedJson.ToInstance<NoContract>();
+            var instance = JsonExtensions.ToInstance<NoContract>(expectedJson);
             //Act 
             var json = test.ToJson();
 
@@ -131,7 +131,7 @@ namespace Pdc.Notation.Test
             var json = "{\"Name\":\"Test Name\",\"Number\":-1,\"Id\":\"00000000-0000-0000-0000-000000000000\"}";
 
             //Act
-            var test = json.ToInstance<NoContract>();
+            var test = JsonExtensions.ToInstance<NoContract>(json);
 
             //Assert
             Assert.AreEqual(-1, test.Number);
@@ -150,7 +150,7 @@ namespace Pdc.Notation.Test
             var test = new NoContract();
 
             //Act
-            test.MapJson(json);
+            test.FromJson(json);
 
             //Assert
             Assert.AreEqual(Convert.ToInt32(numbTest), test.Number);
@@ -168,7 +168,7 @@ namespace Pdc.Notation.Test
             var json = $"{{\"Name\":\"{nameTest}\",\"Number\":{numbTest},\"Id\":\"{guidTest}\",\"OverpostedProperty\":\"something\"}}";
 
             //Act
-            var test = json.ToInstance<NoContract>();
+            var test = JsonExtensions.ToInstance<NoContract>(json);
 
             //Assert
             Assert.AreEqual(Convert.ToInt32(numbTest), test.Number);
@@ -184,7 +184,7 @@ namespace Pdc.Notation.Test
             var json = $"{{\"Name\":\"{nameTest}\"}}";
 
             //Act
-            var noContract = json.ToInstance<NoContract>();
+            var noContract = JsonExtensions.ToInstance<NoContract>(json);
 
             //Assert
             Assert.AreEqual(nameTest, noContract.Name);

@@ -1,0 +1,14 @@
+﻿[
+  {
+    "Id": 1,
+    "PDC_VERARB_FLAG": 0,
+    "headers": "content type = application/json",
+    "body": "{\"id\":\"ed729b86-c682-4c08-b4c7-b86c649d4e58\",\"p0\":\"the name of the object\",\"number\":3,\"dateTime\":\"2017-12-15T13:45:50.7917067+01:00\"}"
+  },
+  {
+    "Id": 2,
+    "PDC_VERARB_FLAG": 0,
+    "headers": "content type = application/json",
+    "body": "{\r\n  \"greeting\": \"Welcome to quicktype!\",\r\n  \"instructions\": [\r\n    \"Type or paste JSON here\",\r\n    \"Or choose a sample above\",\r\n    \"quicktype will generate code in your\",\r\n    \"chosen language to parse the sample data\"\r\n  ]\r\n}"
+  }
+]

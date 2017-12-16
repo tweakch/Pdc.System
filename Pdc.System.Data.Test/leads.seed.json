@@ -1,0 +1,14 @@
+﻿[
+  {
+    "Id": 1,
+    "PDC_VERARB_FLAG": 0,
+    "address": "strassenstrasse 1",
+    "leadId": "1-1"
+  },
+  {
+    "Id": 2,
+    "PDC_VERARB_FLAG": 0,
+    "address": "strassenstrasse 2",
+    "leadId": "1-2"
+  }
+]

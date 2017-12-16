@@ -1,14 +1,17 @@
-﻿using System.Data.Entity;
-using Pdc.System.Data.Repository;
+﻿
+
+using System.Data.Entity;
 
 namespace Pdc.System.Data.Test.Patterns
 {
+    using Pdc.System.Data.Repository;
+
     public class UnitOfWorkLeadsRequests : AUnitOfWork
     {
         private readonly Repository<Lead> _leads;
         private readonly Repository<Request> _requests;
 
-        public UnitOfWorkLeadsRequests(DbContext context) : base(context)
+        public UnitOfWorkLeadsRequests(TestContext context) : base(context)
         {
         }
 
