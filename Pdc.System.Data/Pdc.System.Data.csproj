@@ -39,6 +39,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -53,16 +56,25 @@
     <Compile Include="Db\ITable.cs" />
     <Compile Include="Db\ITableDescription.cs" />
     <Compile Include="Db\PdcTable.cs" />
+    <Compile Include="Extensions\DbSetExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AUnitOfWork.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="State\EProcessing.cs" />
     <Compile Include="State\PdcProcessing.cs" />
+    <Compile Include="Transfer\AJsonDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Pdc.Serialization\Pdc.Serialization.csproj">
+      <Project>{9C664BD2-DB4C-4B13-BE0E-340E9B5E3B26}</Project>
+      <Name>Pdc.Serialization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
