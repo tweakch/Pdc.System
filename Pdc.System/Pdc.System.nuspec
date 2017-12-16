@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic classes for working with databases and services</description>
     <summary>Pdc.System provides basic classes for working with databases and services.</summary>
-    <releaseNotes>First release</releaseNotes>
+    <releaseNotes>Added some documentation.</releaseNotes>
     <copyright>Copyright ©2017 tweakch</copyright>
     <tags>pdc framework system data process validation</tags>
     <iconUrl>http://www.pdc-online.com/pdc_redesign/images/logo.png</iconUrl>
