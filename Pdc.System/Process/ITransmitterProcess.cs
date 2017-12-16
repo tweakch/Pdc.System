@@ -1,4 +1,4 @@
-﻿namespace Pdc.System.Process
+﻿namespace Pdc.System
 {
     /// <summary>
     /// Represents a process running within a Transmitter.

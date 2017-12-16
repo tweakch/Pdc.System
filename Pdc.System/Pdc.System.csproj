@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientProvider\IClient.cs" />
+    <Compile Include="ClientProvider\IClientProvider.cs" />
     <Compile Include="Contract\V1\ILead.cs" />
+    <Compile Include="Process\PdcTransmitterProcess.cs" />
     <Compile Include="Process\ITransmitterProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\AValidationError.cs" />
