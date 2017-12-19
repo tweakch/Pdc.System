@@ -24,7 +24,7 @@ namespace Pdc.System.Data.Repository
         /// <param name="orderBy">A order function t</param>
         /// <param name="includeProperties">Comma separated list of navigation properties for eager loading.</param>
         /// <returns></returns>
-        public IEnumerable<TEntity> Get(
+        public IEnumerable<TEntity> Select(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "")
@@ -47,7 +47,7 @@ namespace Pdc.System.Data.Repository
             return query.ToList();
         }
 
-        public TEntity GetById(object id)
+        public TEntity SelectById(object id)
         {
             return _dbSet.Find(id);
         }
