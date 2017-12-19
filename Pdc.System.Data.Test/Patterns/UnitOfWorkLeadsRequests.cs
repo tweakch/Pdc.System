@@ -15,6 +15,12 @@ namespace Pdc.System.Data.Test.Patterns
         {
         }
 
+        /// <summary>
+        /// Dependency Injection
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="leads"></param>
+        /// <param name="requests"></param>
         public UnitOfWorkLeadsRequests(DbContext context, Repository<Lead> leads, Repository<Request> requests) : base(context)
         {
             _leads = leads;
@@ -24,5 +30,6 @@ namespace Pdc.System.Data.Test.Patterns
         public Repository<Lead> Leads => _leads ?? new Repository<Lead>(Context);
 
         public Repository<Request> Requests => _requests ?? new Repository<Request>(Context);
+
     }
 }
