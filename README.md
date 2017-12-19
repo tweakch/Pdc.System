@@ -1,24 +1,10 @@
-PdcFramework
+# PdcFramework
 
-The Pdc.System package provides support for working with databases and services of all kinds. It's a framework of patterns and practices we use daily.
-
-This framework does not do the work for you, but it introduces terminology through it's interfaces and classes that help you do your job well.
-
-## Overview
-
-> TL;DR Designing distributed systems is hard. The task gets simpler when we think in "Components" instead of Objects (to granular), Packages (to restrictive), Apps (to broad) or Software (to everywhere).
-
-### Everything is an App
-
-Software is everywhere and is becoming more and more interconnected. As technology gets more complex and sophisticated so does terminology.
-
-The terms we use to describe these systems we design are essential, because they determine how we think about the system we want to design software for. But Apps, Systems and Software are ambiguous terms. We don't like these words, because they can mean anything. Even the clock on your watch is an app!
-
-To disambiguate, we like to talk about Components.
+This framework introduces terminology through it's interfaces and classes that help you do your job well.
 
 ## Components as a Service
 
-> TL;DR Components are atomic units. Active Components can generate control signals. Passive Components can only receive them.
+> TL;DR Components are atomic units that can be active or passive. Active Components can generate control signals. Passive Components can only receive them.
 
 A COMPONENT (by definition) is a part of a larger entity. An object that fits into an existing machine / ecosystem. What we as programmers do is design these components by describing them in code. That's it.
 
