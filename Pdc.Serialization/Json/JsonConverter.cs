@@ -6,8 +6,6 @@ namespace Pdc.Serialization.Json
     {
         public static readonly JsonSerializerSettings Settings = new GoogleStyleguideSerializerSettings
         {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None
         };
     }
 }

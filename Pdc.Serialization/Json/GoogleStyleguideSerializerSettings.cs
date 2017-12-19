@@ -12,8 +12,10 @@ namespace Pdc.Serialization.Json
         public GoogleStyleguideSerializerSettings()
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver();
-            DateFormatString = "O"; // ISO 8601
+            DateFormatString = "O"; // ISO 8601 2017-12-21T10:00:00.1111+01:00
             Formatting = Formatting.Indented;
+            MetadataPropertyHandling = MetadataPropertyHandling.Ignore;
+            DateParseHandling = DateParseHandling.None;
         }
     }
 }
