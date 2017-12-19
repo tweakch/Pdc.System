@@ -32,8 +32,7 @@ namespace Pdc.System.Component
         {
             ChannelsConnector = channelsConnector;
         }
-
-
+        
         /// <summary>
         /// </summary>
         /// <param name="channelsConnector"></param>
