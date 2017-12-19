@@ -39,9 +39,32 @@ Examples for active components include:
 
 ### Composite Components
 
-Active and Passive Components can be linked together to create a Composite Component. Interestingly, when reversing the order of the linked components, you also change it from Active to Passive.
+Active and Passive Components can be linked together by [Composition Operators][1] to create a Composite Component. Depending on the nature of these operators, composition can yield either an Active or Passive Compisite.
 
-And before we write the first line of code, we have to think about the ROLE of a COMPONENT within our ecosystem.
+For sequencing we use
+
+* Pipe Connectors and
+* Sequencers
+
+For branching we use the
+
+* Selector Connector
+
+#### Pipe Connector
+
+A pipe that composes Components C~1~,...,C~n~ can call methods in  C~1~,...,C~n~ in that order and pass the results to subsequent methods.
+
+#### Sequencer
+
+Does the same as a pipe, but can't pass method results.
+
+#### Selector Connector
+
+Selectors are Stateful Facades. A [Facade][facade] is a unified interface to a set of objects. A [Stateful Facade][stateful_facade] behaves differently, depending on the current state of the facade.
+
+This might seem like an anti-pattern, but the statefulness of the Connector is needed to create an Active Composite.
+
+The state of the facade determines which sub-component’s methods can be called. So, if a sub-component is active, then the composite will also be active, i.e. it can service an endless sequence of inputs and the role of the external thread is to provide these inputs to the component.
 
 ## The role of roles
 
@@ -65,7 +88,10 @@ All classes can be used - and are tested with - with Unity.
     var configuration = new Pdc.System.AssemblyConfigurator(Assembly.GetExecutingAssembly();)
     UnityContainer container = new UnityContainer(); 
 
-## Links
+---
+
 [1]: https://pdfs.semanticscholar.org/b0ae/820f7f077eda74c11fc22d0da45f2300a4a0.pdf
 [2]: https://vsis-www.informatik.uni-hamburg.de/getDoc.php/publications/433/activecomponents_short.pdf
 [3]: https://vsis-www.informatik.uni-hamburg.de/getDoc.php/publications/477/jadex_peds_revised3.pdf
+[facade]:https://sourcemaking.com/design_patterns/facade
+[stateful_facade]:http://bit.ly/2BHWXHx
