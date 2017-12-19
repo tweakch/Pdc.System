@@ -5,7 +5,13 @@
     /// </summary>
     public interface ITransmitterProcess
     {
+        /// <summary>
+        /// 
+        /// </summary>
         int Errors { get; }
+        /// <summary>
+        /// 
+        /// </summary>
         void Run();
     }
 }

@@ -8,6 +8,9 @@ namespace Pdc.System.Component
     /// </summary>
     public abstract class ComponentBase : IComponent
     {
+        /// <summary>
+        /// Backing field for the SubCompomponents Property
+        /// </summary>
         protected readonly IEnumerable<IComponent> subComponents;
 
         /// <summary>
