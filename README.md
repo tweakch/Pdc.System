@@ -1,10 +1,30 @@
 # PdcFramework
 
-This framework introduces terminology through it's interfaces and classes that help you do your job well.
+This framework introduces terminology through it's interfaces and classes that help you do your job and do it well.
+
+## The power of components
+
+> The source code of `AirportInfoComponent` and `AbbreviationExtenderComponent` can be found in the Samples.
+
+```csharp
+// receive raw airport data
+var json = AirportInfoComponent.Execute("JFK");
+// json = {"delay":"true","IATA":"JFK"...
+
+// directly map results to your classes
+class Info { bool Delay { get; set; } }
+var delay = AirportInfoComponent.Execute<Info>("JFK").Delay;
+// delay == true
+
+// string components together
+var sequence = PipeConnector.Sequence<AirportInfoComponent, AbbreviationExtenderComponent>();
+var example = sequence.Invoke("JFK");
+// example = {"delay":"true","internationalAirTransportAssociation":"John Fitzgerald Kennedy...
+```
 
 ## Components as a Service
 
-> TL;DR Components are atomic units that can be active or passive. Active Components can generate control signals. Passive Components can only receive them.
+> **TL;DR** COMPONENTS are atomic units that can be ACTIVE (generate control signals) or PASSIVE (receive control signals).
 
 A COMPONENT (by definition) is a part of a larger entity. An object that fits into an existing machine / ecosystem. What we as programmers do is design these components by describing them in code. That's it.
 
@@ -16,8 +36,7 @@ Passive components consist of a [Passive Computation Unit][1] and an [Invocation
 
 Examples for passive components include:
 
-* Sockets
-* RESTful Webservices
+* Server (in a client/server environment)
 * Databases
 * Caches
 * A knights shield
@@ -33,7 +52,9 @@ Just like their Passive counterparts, Active components can be installed and uni
 
 Examples for active components include:
 
-* Client in a Client/Server environment
+* Client (in a client/server environment)
+* ...
+* ...
 * Bird of Prey cloaking module.
 * Death Star Mk I Superlaser
 
@@ -60,11 +81,11 @@ Does the same as a pipe, but can't pass method results.
 
 #### Selector Connector
 
-Selectors are Stateful Facades. A [Facade][facade] is a unified interface to a set of objects. A [Stateful Facade][stateful_facade] behaves differently, depending on the current state of the facade.
+Selectors are Stateful Facades. A [Facade][facade] is a unified interface to a set of objects. A [Stateful Facade][stateful_facade] behaves depending on the current state of the facade.
 
 This might seem like an anti-pattern, but the statefulness of the Connector is needed to create an Active Composite.
 
-The state of the facade determines which sub-component’s methods can be called. So, if a sub-component is active, then the composite will also be active, i.e. it can service an endless sequence of inputs and the role of the external thread is to provide these inputs to the component.
+Depending on it's state, the facade determines which sub-component’s methods can be called. So, if a sub-component is active, then the composite will also be active. It can service an endless sequence of inputs and the role of the connector thread is to provide these inputs to the component itself.
 
 ## The role of roles
 
@@ -72,21 +93,36 @@ The state of the facade determines which sub-component’s methods can be called
 
 ### Roles
 
-Regardless of their Active or Passive nature, Components can take on ROLES.
+Since pdc works with databases and webservices to send / receive data from customers, we predefined three roles in this framework for you to use. Of course you can extend these roles or create new ones.
 
-* TRANSMITTER (send data somewhere, Active Only)
-* RECEIVER (receive data from someone, Passive and Active)
-* TRANSCEIVER (does both, Active Only)
+#### Transmitters
 
-This framework is built around this core concept, and you will find a lot of classes that support this way of thinking.
+> Send data somewhere, Active Only)
+
+asd
+
+#### Receivers
+
+> Receive data from someone, Passive and Active
+
+asd
+
+#### Transceivers
+
+> Receive and transmit data, Active Only)
+
+asd
 
 ## Conventions
 
 ### Dependency Injection Ready
 
-All classes can be used - and are tested with - with Unity.
-    var configuration = new Pdc.System.AssemblyConfigurator(Assembly.GetExecutingAssembly();)
-    UnityContainer container = new UnityContainer(); 
+All classes can be used - and are tested - with Unity.
+
+```csharp
+var configuration = new Pdc.System.AssemblyConfigurator(Assembly.GetExecutingAssembly();
+UnityContainer container = new UnityContainer();
+```
 
 ---
 
