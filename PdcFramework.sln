@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdc.System.Data.Test", "Pdc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdc.Schema", "Pdc.Schema\Pdc.Schema.csproj", "{E3F6F7E5-0D93-4C44-BF7A-F1F2303308D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdc.System.Test", "Pdc.System.Test\Pdc.System.Test.csproj", "{423FC3A2-650C-4161-9270-AAF89126E6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdc.System.Sample", "Pdc.System.Sample\Pdc.System.Sample.csproj", "{C0EDCDE0-41BC-475E-A393-8B68E21BF677}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{72F4DE1F-84E7-4EE8-BB65-6B41DDAEB7C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55EC0A0A-DB87-4570-BF30-593C40131F4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,8 +59,22 @@ Global
 		{E3F6F7E5-0D93-4C44-BF7A-F1F2303308D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3F6F7E5-0D93-4C44-BF7A-F1F2303308D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3F6F7E5-0D93-4C44-BF7A-F1F2303308D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423FC3A2-650C-4161-9270-AAF89126E6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423FC3A2-650C-4161-9270-AAF89126E6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423FC3A2-650C-4161-9270-AAF89126E6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423FC3A2-650C-4161-9270-AAF89126E6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0EDCDE0-41BC-475E-A393-8B68E21BF677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0EDCDE0-41BC-475E-A393-8B68E21BF677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0EDCDE0-41BC-475E-A393-8B68E21BF677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0EDCDE0-41BC-475E-A393-8B68E21BF677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0C072E2-4634-40D6-AE10-A218BDCECEC2} = {55EC0A0A-DB87-4570-BF30-593C40131F4F}
+		{CDFDD014-B02B-4285-AFD4-9AB39234B2A4} = {55EC0A0A-DB87-4570-BF30-593C40131F4F}
+		{423FC3A2-650C-4161-9270-AAF89126E6B1} = {55EC0A0A-DB87-4570-BF30-593C40131F4F}
+		{C0EDCDE0-41BC-475E-A393-8B68E21BF677} = {72F4DE1F-84E7-4EE8-BB65-6B41DDAEB7C0}
 	EndGlobalSection
 EndGlobal
