@@ -8,17 +8,16 @@ This framework introduces terminology through it's interfaces and classes that h
 
 ```csharp
 // receive raw airport data
-var json = AirportInfoComponent.Execute("JFK");
-// json = {"delay":"true","IATA":"JFK"...
+var info = AirportInfoComponent.Execute("JFK");
+// {"delay":"true","IATA":"JFK"...
 
 // directly map results to your classes
-class Info { bool Delay { get; set; } }
-var delay = AirportInfoComponent.Execute<Info>("JFK").Delay;
-// delay == true
+var delay = AirportInfoComponent.Execute<AirportInfo>("JFK").Delay;
+// true
 
 // string components together
 var sequence = PipeConnector.Sequence<AirportInfoComponent, AbbreviationExtenderComponent>();
-var example = sequence.Invoke("JFK");
+var example = sequence.Execute("JFK");
 // example = {"delay":"true","internationalAirTransportAssociation":"John Fitzgerald Kennedy...
 ```
 
