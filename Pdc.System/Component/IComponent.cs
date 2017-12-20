@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Pdc.System.Component.Connector;
 
 namespace Pdc.System.Component
 {
@@ -7,6 +8,11 @@ namespace Pdc.System.Component
     /// </summary>
     public interface IComponent
     {
+        /// <summary>
+        /// Provides the interface for the Component
+        /// </summary>
+        IConnector Connector { get; }
+
         /// <summary>
         ///     True if the component has SubComponents, otherwise False
         /// </summary>
@@ -30,6 +36,12 @@ namespace Pdc.System.Component
         /// <summary>
         ///     The type of the component
         /// </summary>
-        EComponentType ComponentTypeType { get; }
+        EComponentType ComponentType { get; }
+
+        /// <summary>
+        ///     The arity of the component
+        /// </summary>
+        EComponentArity ComponentArity { get; }
+
     }
 }
