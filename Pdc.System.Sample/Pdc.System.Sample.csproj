@@ -38,10 +38,6 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pdc.System, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pdc.System.1.0.1\lib\net47\Pdc.System.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,14 +48,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICruiseControlConnector.cs" />
-    <Compile Include="Driver.cs" />
+    <Compile Include="Components\Active\ActiveComputationUnitImpl.cs" />
+    <Compile Include="Components\Active\AirportInfoComponent.cs" />
+    <Compile Include="Components\Connectors\AirportInfoChannelsSelector.cs" />
+    <Compile Include="Components\NamedChannel.cs" />
+    <Compile Include="Components\NamedChannelEnvironment.cs" />
+    <Compile Include="Components\Passive\AbbreviationExtenderComponent.cs" />
+    <Compile Include="Components\Passive\CompleteAbbreviationExtenderComponent.cs" />
+    <Compile Include="Components\SampleChannelCollection.cs" />
+    <Compile Include="Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pdc.Serialization\Pdc.Serialization.csproj">
+      <Project>{9C664BD2-DB4C-4B13-BE0E-340E9B5E3B26}</Project>
+      <Name>Pdc.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pdc.System\Pdc.System.csproj">
+      <Project>{9b6ee8ff-c003-41d2-9c9a-764da9d6e023}</Project>
+      <Name>Pdc.System</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
