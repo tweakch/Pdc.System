@@ -4,8 +4,6 @@ namespace Pdc.Serialization.Json
 {
     internal class JsonConverter
     {
-        public static readonly JsonSerializerSettings Settings = new GoogleStyleguideSerializerSettings
-        {
-        };
+        public static readonly JsonSerializerSettings Settings = new GoogleStyleguideSerializerSettings();
     }
 }

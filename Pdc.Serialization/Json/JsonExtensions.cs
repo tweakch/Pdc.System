@@ -47,7 +47,9 @@ namespace Pdc.Serialization.Json
         /// <returns></returns>
         public static T ToInstance<T>(this string json)
         {
-            return JsonDeserializer.ToInstance<T>(json);
+            Mapper.Initialize(cfg => cfg.CreateMap<T,T>());
+            T instance = JsonDeserializer.ToInstance<T>(json);
+            return instance;
         }
 
         /// <summary>
@@ -59,7 +61,8 @@ namespace Pdc.Serialization.Json
         public static void FromJson<T>(this T obj, string json) where T : class
         {
             Mapper.Initialize(cfg => cfg.CreateMap<T, T>());
-            Mapper.Map(ToInstance<T>(json), obj);
+            T instance = ToInstance<T>(json);
+            Mapper.Map(instance, obj);
         }
     }
 }
