@@ -16,17 +16,17 @@ namespace Pdc.System.Sample.Components
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="activeComputationUnit"></param>
-        public NamedChannelEnvironment(IActiveComputationUnit activeComputationUnit)
+        /// <param name="computationUnit"></param>
+        public NamedChannelEnvironment(IActiveComputationUnit computationUnit)
         {
             io = new List<Tuple<object, object>>();
-            ActiveComputationUnit = activeComputationUnit;
+            ComputationUnit = computationUnit;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public IActiveComputationUnit ActiveComputationUnit { get; }
+        public IActiveComputationUnit ComputationUnit { get; }
 
         /// <summary>
         /// 
@@ -41,7 +41,7 @@ namespace Pdc.System.Sample.Components
 
         private async Task<List<object>> PerformChannelOperation()
         {
-            _outValues = await ActiveComputationUnit.Invoke(_inValues);
+            _outValues = await ComputationUnit.Invoke(_inValues);
             return _outValues;
         }
 
