@@ -56,7 +56,7 @@ namespace Pdc.System.Component.Connector
 
             foreach (var component in _sequence)
             {
-                component.Connector.Execute("", inValues, out outValues);
+                component.Connector.Execute(string.Empty, inValues, out outValues);
                 inValues = outValues;
             }
             return outValues;
