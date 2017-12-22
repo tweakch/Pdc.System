@@ -11,6 +11,7 @@
     <description>Basic classes for working with databases and services</description>
     <summary>Pdc.System provides basic classes for working with databases and services.</summary>
     <releaseNotes>
+      1.0.2 Added some documentation in Pdc.System.Process   
       1.0.1 Added some documentation in Pdc.System.Process   
       1.0.0 Initial releaseNotes
     </releaseNotes>

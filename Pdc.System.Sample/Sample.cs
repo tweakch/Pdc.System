@@ -22,8 +22,8 @@ namespace Pdc.System.Sample
             var example = sequence.Execute("JFK");
             // example = {"delay":"true","internationalAirTransportAssociation":"John Fitzgerald Kennedy...
 
-            var username = "chattan07";
-            var password = "dDi7CBNKvq";
+            var username = "demo";
+            var password = "password";
             var sessionId = GeoNamesPostalCodesComponent.Login(username, password);
             var result = (string)GeoNamesPostalCodesComponent.PostalCode(username, sessionId, "8001");
 
