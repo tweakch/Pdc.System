@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Pdc.System.Component.Connector
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class UnaryComputationConnector<T> : IUnaryConnector<T>
@@ -22,10 +21,16 @@ namespace Pdc.System.Component.Connector
             try
             {
                 outValues = new List<object>();
-                var inValue = (T) inValues.Single();
-                T outValue;
-                Execute(inValue, out outValue);
-                outValues.Add(outValue);
+                foreach (var item in inValues)
+                {
+                    T outValue;
+                    Execute((T)item, out outValue);
+                    outValues.Add(outValue);
+                }
+            }
+            catch (InvalidCastException)
+            {
+                throw new InvalidOperationException("The Typesafe Unary Computation was invoked with the wrong input values");
             }
             catch (Exception)
             {
@@ -33,18 +38,17 @@ namespace Pdc.System.Component.Connector
             }
         }
 
-
         /// <summary>
         /// Binds the connector to the given component
         /// </summary>
         /// <param name="component">The component this connector belongs to</param>
         public void Bind(IComponent component)
         {
-            _component = (PassiveUnaryComponent<T>) component;
+            _component = (PassiveUnaryComponent<T>)component;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inValue"></param>
         /// <param name="outValue"></param>

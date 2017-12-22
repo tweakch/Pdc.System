@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Pdc.System.Component.Connector;
+﻿using Pdc.System.Component.Connector;
+using System.Collections.Generic;
 
 namespace Pdc.System.Component
 {
@@ -42,6 +42,5 @@ namespace Pdc.System.Component
         ///     The arity of the component
         /// </summary>
         EComponentArity ComponentArity { get; }
-
     }
 }

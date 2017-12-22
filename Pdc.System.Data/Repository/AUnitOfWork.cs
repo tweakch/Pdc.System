@@ -5,7 +5,7 @@ namespace Pdc.System.Data.Repository
 {
     /**
      *  Inherit from AUnitOfWork and add your repositories to the implementation like this:
-     *  
+     *
      *  private Repository<Lead> leadRepository;
      *  private Repository<Request> requestRepository;
      *

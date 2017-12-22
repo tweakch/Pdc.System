@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.ServiceModel.Configuration;
 using System.Threading.Tasks;
-using Pdc.System.Component.Connector;
 
 namespace Pdc.System.Component
 {
@@ -12,10 +10,10 @@ namespace Pdc.System.Component
     {
         // InteractionTimer
         // CommunicatingSequentialProcessCollection CSPCollection
-        // 
+        //
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Task<List<object>> Invoke(List<object> inValues);
     }

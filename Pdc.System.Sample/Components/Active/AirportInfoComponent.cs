@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using System.Linq;
 using Pdc.Serialization.Json;
 using Pdc.System.Component;
-using Pdc.System.Sample.Components.Connectors;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Pdc.System.Sample.Components.Active
 {
@@ -15,23 +14,35 @@ namespace Pdc.System.Sample.Components.Active
     /// </summary>
     public class AirportInfoComponent : ActiveComponentBase
     {
-        public AirportInfoComponent() : base(new AirportInfoChannelsSelector())
+        public AirportInfoComponent()
+            : base(new AirportInfoChannelCollection())
         {
         }
 
         /// <summary>
-        ///     Initializes the AirportInfoComponent, and passes the IATA code to the FAA Airport Service API channel.
+        ///     Initializes the AirportInfoComponent and retreives airport status via IATA code
         /// </summary>
         /// <param name="iata">IATA code of the airport</param>
         /// <returns>JSON data for the airport.</returns>
-        public static string Execute(string iata)
+        public static object Execute(string iata)
+        {
+            // active components should only be accessed within using blocks
+            // to free ChannelEnvironments and ComputationUnits automatically
+            using (var component = new AirportInfoComponent())
+            {
+                var execute = component.Execute(AirportInfoChannelCollection.FAA_API, iata) as List<object>;
+                return execute[0];
+            }
+        }
+
+        public static async Task<string> ExecuteAsync(string iata)
         {
             using (var component = new AirportInfoComponent())
             {
-                List<object> outValue;
-                var inValues = new List<object> {iata};
-                component.Connector.Execute(SampleChannelCollection.FAA_API, inValues, out outValue);
-                return outValue.Single().ToString();
+                var asyncResult = await component.
+                    ExecuteAsync(AirportInfoChannelCollection.FAA_API, iata).
+                    ContinueWith(taskResult => (string)taskResult.Result);
+                return asyncResult;
             }
         }
 
@@ -47,7 +58,7 @@ namespace Pdc.System.Sample.Components.Active
         public static T Execute<T>(string iata) where T : class
         {
             var executeResult = Execute(iata);
-            var instance = executeResult.ToInstance<T>();
+            var instance = ((string)executeResult).ToInstance<T>();
             return instance;
         }
     }

@@ -1,9 +1,9 @@
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Pdc.Net.Http;
 using Pdc.Net.Http.Configuration;
 using Pdc.Net.Http.Validation;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Pdc.Net.Service.Client
 {
@@ -18,7 +18,6 @@ namespace Pdc.Net.Service.Client
             }
             ClientConfiguration = clientConfiguration;
         }
-
 
         public HttpClientWrapper() : this(null)
         {
@@ -74,7 +73,7 @@ namespace Pdc.Net.Service.Client
             var result = ContentValidator.Validate(content, ClientConfiguration);
             if (result.HasErrors)
             {
-                // Log, throw, etc.  
+                // Log, throw, etc.
             }
         }
     }
@@ -97,7 +96,5 @@ namespace Pdc.Net.Service.Client
                 return json;
             });
         }
-
-        
     }
 }

@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Pdc.System.Data.Transfer;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using Pdc.System.Data.Transfer;
 
 namespace Pdc.System.Data.Test
 {

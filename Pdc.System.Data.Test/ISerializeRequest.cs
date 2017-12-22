@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Pdc.System.Data.Test
+﻿namespace Pdc.System.Data.Test
 {
     using Newtonsoft.Json;
 

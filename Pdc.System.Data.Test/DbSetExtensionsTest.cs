@@ -1,7 +1,5 @@
-﻿
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Pdc.System.Data.Extensions;
-using System.Data.Entity;
 using System.Linq;
 
 namespace Pdc.System.Data.Test
@@ -15,7 +13,7 @@ namespace Pdc.System.Data.Test
             //Arrange
             var context = new TestContext();
             var rows = context.Leads.ToList().Count;
-            var columns = typeof (Lead).GetProperties().Count();
+            var columns = typeof(Lead).GetProperties().Count();
             context.Leads.Add(new Lead { Adresse = "Strassenstrasse 1", LeadId = "1" });
             context.SaveChanges();
 

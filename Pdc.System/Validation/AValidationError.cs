@@ -3,12 +3,12 @@
 namespace Pdc.System.Validation
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public abstract class AValidationError : IValidationError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="message"></param>
         /// <exception cref="ArgumentNullException"></exception>
@@ -19,7 +19,7 @@ namespace Pdc.System.Validation
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string Message { get; }
     }

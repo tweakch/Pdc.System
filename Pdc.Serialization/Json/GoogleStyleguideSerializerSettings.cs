@@ -1,8 +1,6 @@
-﻿using System;
-using System.Reflection;
-using AutoMapper.Configuration.Conventions;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Reflection;
 
 namespace Pdc.Serialization.Json
 {

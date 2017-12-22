@@ -13,7 +13,7 @@ namespace Pdc.System.Process
         private readonly Action<IClient> _run;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         protected PdcTransmitterProcess()
         {
@@ -35,19 +35,22 @@ namespace Pdc.System.Process
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public int Errors { get; protected set; } = 0;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         protected abstract void OnBeforeRun();
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         protected abstract void OnAfterRun();
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="client"></param>
         protected abstract void OnRun(IClient client);

@@ -1,5 +1,5 @@
-﻿using System;
-using Pdc.System;
+﻿using Pdc.System;
+using System;
 
 namespace Pdc.Schema
 {
@@ -7,7 +7,6 @@ namespace Pdc.Schema
     {
         public TransmitterSchema()
         {
-            
         }
 
         public IClient GetClient()

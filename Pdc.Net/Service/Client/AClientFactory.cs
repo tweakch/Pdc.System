@@ -21,7 +21,7 @@ namespace Pdc.Net.Service.Client
 
         public object CreateClient(string configurationName, string username, string password)
         {
-            var client = (ClientBase<TChannel>) _provider.GetClient(configurationName);
+            var client = (ClientBase<TChannel>)_provider.GetClient(configurationName);
             if (client.ClientCredentials == null) throw new NotSupportedException();
             client.ClientCredentials.UserName.UserName = username;
             client.ClientCredentials.UserName.Password = username;
@@ -30,7 +30,7 @@ namespace Pdc.Net.Service.Client
 
         public object CreateClient(string configurationName, IEndpointBehavior behaviour)
         {
-            var client = (ClientBase<TChannel>) CreateClient(configurationName);
+            var client = (ClientBase<TChannel>)CreateClient(configurationName);
             client.Endpoint.Behaviors.Add(behaviour);
             return client;
         }
@@ -38,7 +38,7 @@ namespace Pdc.Net.Service.Client
         public object CreateClient(string configurationName, string username, string password,
             IEndpointBehavior behaviour)
         {
-            var client = (ClientBase<TChannel>) CreateClient(configurationName, username, password);
+            var client = (ClientBase<TChannel>)CreateClient(configurationName, username, password);
             client.Endpoint.Behaviors.Add(behaviour);
             return client;
         }

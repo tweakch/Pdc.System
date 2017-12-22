@@ -1,5 +1,5 @@
-﻿using System;
-using Pdc.System.Component.Connector;
+﻿using Pdc.System.Component.Connector;
+using System;
 
 namespace Pdc.System.Component
 {
@@ -8,26 +8,27 @@ namespace Pdc.System.Component
     /// </summary>
     /// <typeparam name="TConnector">Type of the connector</typeparam>
     /// <typeparam name="TComputationUnit">Type of the computation unit</typeparam>
-    public abstract class PassiveComponentBase<TConnector, TComputationUnit> 
-        : PassiveComponentBase 
-        where TConnector : IConnector 
+    public abstract class PassiveComponentBase<TConnector, TComputationUnit>
+        : PassiveComponentBase
+        where TConnector : IConnector
         where TComputationUnit : IPassiveComputationUnit
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        protected PassiveComponentBase() 
+        protected PassiveComponentBase()
             : base(Activator.CreateInstance<TConnector>(), Activator.CreateInstance<TComputationUnit>())
         {
         }
     }
+
     /// <summary>
     ///     Abstract base class for a passive component
     /// </summary>
     public abstract class PassiveComponentBase : ComponentBase
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         protected PassiveComponentBase()
         {

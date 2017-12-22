@@ -1,6 +1,6 @@
-﻿using System.Net.Http;
-using Pdc.Net.Http.Configuration;
+﻿using Pdc.Net.Http.Configuration;
 using Pdc.System.Validation;
+using System.Net.Http;
 
 namespace Pdc.Net.Http.Validation
 {

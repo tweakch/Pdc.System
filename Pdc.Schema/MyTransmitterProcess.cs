@@ -1,11 +1,6 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Pdc.System;
+﻿using Pdc.System;
 using Pdc.System.Process;
+using System;
 
 namespace Pdc.Schema
 {

@@ -18,7 +18,7 @@ namespace Pdc.System.Data.Repository
         }
 
         /// <summary>
-        ///     Queries this repositories <see cref="DbSet{TEntity}"/> and returns it as a <see cref="List{TEntity}"/> 
+        ///     Queries this repositories <see cref="DbSet{TEntity}"/> and returns it as a <see cref="List{TEntity}"/>
         /// </summary>
         /// <param name="filter">A predicate expression used to filter the query</param>
         /// <param name="orderBy">A order function t</param>
@@ -37,7 +37,7 @@ namespace Pdc.System.Data.Repository
             }
 
             query = includeProperties
-                .Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                 .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 
             if (orderBy != null)

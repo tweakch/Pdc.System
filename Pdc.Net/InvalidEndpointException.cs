@@ -6,7 +6,6 @@ namespace Pdc.Net
     {
         public InvalidEndpointException(string argument)
         {
-            
         }
     }
 }

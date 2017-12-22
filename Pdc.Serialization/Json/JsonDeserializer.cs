@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace Pdc.Serialization.Json
 {
@@ -8,6 +9,15 @@ namespace Pdc.Serialization.Json
     internal static class JsonDeserializer
     {
         public static T ToInstance<T>(this string self)
-            => JsonConvert.DeserializeObject<T>(self, JsonConverter.Settings);
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(self, JsonConverter.Settings);
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
+        }
     }
 }

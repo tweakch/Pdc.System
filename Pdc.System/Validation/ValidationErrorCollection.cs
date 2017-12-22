@@ -11,7 +11,7 @@ namespace Pdc.System.Validation
         private readonly List<IValidationError> _errors;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ValidationErrorCollection()
         {

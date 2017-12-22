@@ -48,19 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Active\ActiveComputationUnitImpl.cs" />
+    <Compile Include="Components\Active\ComputationUnits\FaaServicesApiComputationUnit.cs" />
     <Compile Include="Components\Active\AirportInfoComponent.cs" />
-    <Compile Include="Components\Active\AsyncHttpClientOperation.cs" />
-    <Compile Include="Components\Active\IHttpClientSettings.cs" />
-    <Compile Include="Components\Active\JsonClientHeaderValues.cs" />
-    <Compile Include="Components\Connectors\AirportInfoChannelsSelector.cs" />
-    <Compile Include="Components\NamedChannel.cs" />
-    <Compile Include="Components\NamedChannelEnvironment.cs" />
+    <Compile Include="Components\Active\ComputationUnits\LoginComputationUnit.cs" />
+    <Compile Include="Components\Active\ComputationUnits\PostalCodeComputationUnit.cs" />
     <Compile Include="Components\Passive\UnaryAbbreviationExtenderComponent.cs" />
     <Compile Include="Components\Passive\CompleteAbbreviationExtenderComponent.cs" />
-    <Compile Include="Components\SampleChannelCollection.cs" />
+    <Compile Include="Components\Channels\AirportInfoChannelCollection.cs" />
+    <Compile Include="Components\Active\GeoNamesPostalCodesComponent.cs" />
     <Compile Include="Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sample.Domain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

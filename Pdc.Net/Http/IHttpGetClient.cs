@@ -2,9 +2,10 @@
 
 namespace Pdc.Net.Http
 {
-    interface IHttpGetClient
+    internal interface IHttpGetClient
     {
         string GetString(string url);
+
         Task<string> GetStringAsync(string url);
     }
 }

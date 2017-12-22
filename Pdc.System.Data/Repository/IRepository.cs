@@ -13,9 +13,13 @@ namespace Pdc.System.Data.Repository
             string includeProperties = "");
 
         TEntity SelectById(object id);
+
         void Insert(TEntity entity);
+
         void Delete(object id);
+
         void Delete(TEntity entityToDelete);
+
         void Update(TEntity entityToUpdate);
     }
 }

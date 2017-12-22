@@ -1,5 +1,6 @@
 using System.Data.Entity.Migrations;
 using System.IO;
+
 namespace Pdc.System.Data.Test.Migrations
 {
     using Pdc.Serialization.Json;
@@ -23,7 +24,7 @@ namespace Pdc.System.Data.Test.Migrations
 
             //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
         }
     }

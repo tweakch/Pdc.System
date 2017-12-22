@@ -8,7 +8,7 @@ namespace Pdc.System.Data.State
         New = 0,
         Invalid = 1,
         Seen = 2,
-        
+
         //Frei = 4,
 
         Ok = 8,

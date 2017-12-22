@@ -1,6 +1,4 @@
-﻿
-
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace Pdc.System.Data.Test.Patterns
 {
@@ -30,6 +28,5 @@ namespace Pdc.System.Data.Test.Patterns
         public Repository<Lead> Leads => _leads ?? new Repository<Lead>(Context);
 
         public Repository<Request> Requests => _requests ?? new Repository<Request>(Context);
-
     }
 }

@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Pdc.System.Component.Connector;
+using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
-using System.ServiceModel;
-using Pdc.System.Component.Connector;
+using System.Threading.Tasks;
 
 namespace Pdc.System.Component
 {
@@ -12,6 +11,14 @@ namespace Pdc.System.Component
     /// </summary>
     public abstract class ActiveComponentBase : ComponentBase, IDisposable
     {
+        /// <summary>
+        /// </summary>
+        /// <param name="channelsCollection"></param>
+        protected ActiveComponentBase(IChannelsCollection channelsCollection)
+            : this(new ChannelCollectionSelector(channelsCollection))
+        {
+        }
+
         /// <summary>
         ///     Initializes an active component.
         /// </summary>
@@ -23,7 +30,7 @@ namespace Pdc.System.Component
         /// <summary>
         /// </summary>
         /// <param name="subComponents"></param>
-        protected ActiveComponentBase(IEnumerable<IComponent> subComponents) 
+        protected ActiveComponentBase(IEnumerable<IComponent> subComponents)
             : base(subComponents)
         {
         }
@@ -38,15 +45,24 @@ namespace Pdc.System.Component
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public IChannelsCollection Channels { get; set; }
-        
-        /// <summary>
         /// </summary>
         /// <param name="channelsConnector"></param>
         protected ActiveComponentBase(IChannelsConnector channelsConnector) : base(channelsConnector)
         {
+        }
+
+        /// <summary>
+        /// </summary>
+        public IChannelsCollection Channels { get; set; }
+
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            // Request Cancellation on all threads
+            // Stop & dispose all active subcomponents
+            // GarbageCollect
         }
 
         /// <summary>
@@ -56,24 +72,30 @@ namespace Pdc.System.Component
         /// <param name="inValue"></param>
         /// <returns></returns>
         public object Execute(string channelName, params object[] inValue)
-        {          
-            var channelsConnector = ((IChannelsConnector)Connector);
-            if (!channelsConnector.ContainsChannel(channelName))
-                throw new ChannelNotFoundException(channelName);
-
+        {
+            var channelsConnector = GetChannelsConnector(channelName);
             List<object> outValues, inValues = inValue.ToList();
             channelsConnector.Execute(channelName, inValues, out outValues);
             return outValues;
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        ///
         /// </summary>
-        public void Dispose()
+        /// <param name="channelName"></param>
+        /// <param name="inValues"></param>
+        /// <returns></returns>
+        public Task<object> ExecuteAsync(string channelName, params object[] inValues)
         {
-            // Request Cancellation on all threads
-            // Stop & dispose all active subcomponents
-            // GarbageCollect
+            return Task.Run(() => Execute(channelName, inValues));
+        }
+
+        private IChannelsConnector GetChannelsConnector(string channelName)
+        {
+            var channelsConnector = ((IChannelsConnector)Connector);
+            if (!channelsConnector.ContainsChannel(channelName))
+                throw new ChannelNotFoundException(channelName);
+            return channelsConnector;
         }
 
         /// <summary>
@@ -87,7 +109,6 @@ namespace Pdc.System.Component
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -97,14 +118,13 @@ namespace Pdc.System.Component
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="channelName"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="ChannelNotFoundException"></exception>
         public IChannelEnvironment GetChannelEnvironment(string channelName)
         {
-            return Channels[channelName].GetEnvironment();
+            return Channels[channelName].Environment;
         }
     }
 }

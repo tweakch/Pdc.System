@@ -1,8 +1,7 @@
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using Pdc.Net.Http.Validation;
 using Pdc.System.Validation;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Pdc.Net.Http.Configuration
 {

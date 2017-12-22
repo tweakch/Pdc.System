@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Pdc.System.Component;
+using Pdc.System.Component.Connector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Pdc.System.Component;
-using Pdc.System.Component.Connector;
 
 namespace Pdc.System.Sample.Components.Passive
 {
@@ -49,7 +49,7 @@ namespace Pdc.System.Sample.Components.Passive
                     object outValue;
 
                     //we can f.e.
-                    if (index%2 == 0)
+                    if (index % 2 == 0)
                     {
                         //assign an outValue by reference (which is faster)
                         ReplaceByReference(inValue, out outValue);
@@ -72,7 +72,7 @@ namespace Pdc.System.Sample.Components.Passive
             {
                 try
                 {
-                    result = _known.Aggregate((string) str, (current, abb) => current.Replace(abb.Key, abb.Value));
+                    result = _known.Aggregate((string)str, (current, abb) => current.Replace(abb.Key, abb.Value));
                 }
                 catch (InvalidCastException)
                 {
@@ -89,7 +89,7 @@ namespace Pdc.System.Sample.Components.Passive
             {
                 try
                 {
-                    return _known.Aggregate((string) str, (current, abb) => current.Replace(abb.Key, abb.Value));
+                    return _known.Aggregate((string)str, (current, abb) => current.Replace(abb.Key, abb.Value));
                 }
                 catch (InvalidCastException)
                 {
@@ -112,7 +112,7 @@ namespace Pdc.System.Sample.Components.Passive
                 if (!string.IsNullOrWhiteSpace(name))
                     throw new ArgumentException(nameof(name));
 
-                // now we call the only computation unit we know: 
+                // now we call the only computation unit we know:
                 _component.PassiveComputationUnit.Invoke(inValues, out outValues);
             }
 
@@ -122,7 +122,7 @@ namespace Pdc.System.Sample.Components.Passive
             /// <param name="component">The component this connector belongs to</param>
             public void Bind(IComponent component)
             {
-                _component = (PassiveComponentBase) component;
+                _component = (PassiveComponentBase)component;
             }
         }
     }

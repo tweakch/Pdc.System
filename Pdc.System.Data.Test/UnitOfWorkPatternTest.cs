@@ -1,19 +1,12 @@
-﻿
-using System.Linq;
-using System.Net.Http;
-using NUnit.Compatibility;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Pdc.System.Data.Test.Patterns;
+using System.Linq;
 
 namespace Pdc.System.Data.Test
 {
-
-
     [TestFixture]
     public class UnitOfWorkPatternTest
     {
-
-
         [Test]
         public void TestUpdater()
         {
@@ -28,7 +21,6 @@ namespace Pdc.System.Data.Test
         public void TestRepository()
         {
             var unit = new UnitOfWorkLeadsRequests(new TestContext());
-
 
             var leadId = "2-2";
 

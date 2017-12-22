@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Pdc.Net.Service.Behaviour;
+using System;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using Pdc.Net.Service.Behaviour;
 
 namespace Pdc.Net.Service
 {

@@ -3,7 +3,7 @@ using System;
 namespace Pdc.System.Component.Connector
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public interface IBinaryConnector
     {

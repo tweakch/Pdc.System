@@ -112,6 +112,50 @@ asd
 
 asd
 
+## Component evolution
+
+You should always consider evolving your components. Start simple (by inheriting from the `ActiveComponentBase` class and take it step by step until you get a set of neat little units that you can use in all your projects.
+
+Let's look at a the `Login` method for the `GeoNamesPostalCodesComponent`:
+
+```csharp
+public class GeoNamesPostalCodesComponent : ActiveComponentBase
+{
+    // constructor omitted...
+
+    public static object Login(string username, string password)
+    {
+        using (var component = new GeoNamesPostalCodesComponent())
+        {
+            var result = component.Execute("Login", username, password);
+            return result;
+        }
+    }
+
+    public static object PostalCode(string username, object sessionId, string postalCode)
+    {
+        // body omitted...
+    }
+}
+```
+
+There are a couple of little problems here, but there is a BIG ONE as well!
+
+> `GeoNamesPostalCodesComponent` inherits from `ActiveComponentBase`, so the `Execute(...)`-Method will return `List<object>` containing the `HttpResponseMessage` from the GeoNames API as the only item in the list.
+
+We could return `result` or could return `result[0]`... We could even do this:
+
+```csharp
+using (var component = new GeoNamesPostalCodesComponent())
+{
+    var result = (HttpResponseMessage)component.Execute("Login", username, password);
+    return result;
+}
+```
+
+
+What we want is the SessionId in the response because we want to use it in 
+
 ## Conventions
 
 ### Dependency Injection Ready

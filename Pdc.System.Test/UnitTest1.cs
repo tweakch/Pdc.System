@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Pdc.System.Test
 {
@@ -9,7 +8,6 @@ namespace Pdc.System.Test
         [Test]
         public void TestMethod1()
         {
-
         }
     }
 }

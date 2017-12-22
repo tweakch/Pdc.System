@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Pdc.System.Component.Connector;
+using System.Collections.Generic;
 using System.Linq;
-using Pdc.System.Component.Connector;
 
 namespace Pdc.System.Component
 {
@@ -84,7 +84,7 @@ namespace Pdc.System.Component
 
         private void InferArity(IConnector connector)
         {
-            //#refactor PO and infer arity from exposed connector methods 
+            //#refactor PO and infer arity from exposed connector methods
             // => arity == least supported input value count
             var name = connector.GetType().Name;
             if (name.Contains("Unary"))

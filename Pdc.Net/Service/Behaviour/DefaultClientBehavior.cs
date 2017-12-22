@@ -1,7 +1,7 @@
-﻿using System.ServiceModel.Channels;
+﻿using Pdc.Net.Service.Inspector;
+using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using Pdc.Net.Service.Inspector;
 
 namespace Pdc.Net.Service.Behaviour
 {

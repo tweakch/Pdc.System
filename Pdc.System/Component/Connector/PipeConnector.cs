@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pdc.System.Component.Connector
 {
@@ -14,7 +11,7 @@ namespace Pdc.System.Component.Connector
         private readonly List<IComponent> _sequence;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="sequence"></param>
         public PipeConnector(List<IComponent> sequence)
@@ -23,14 +20,14 @@ namespace Pdc.System.Component.Connector
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public static PipeConnector Sequence<T1, T2>() 
-            where T1 : IComponent 
+        public static PipeConnector CreateSequence<T1, T2>()
+            where T1 : IComponent
             where T2 : IComponent
         {
             var sequence = new List<IComponent>
@@ -44,7 +41,7 @@ namespace Pdc.System.Component.Connector
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
@@ -56,15 +53,42 @@ namespace Pdc.System.Component.Connector
 
             foreach (var component in _sequence)
             {
-                component.Connector.Execute(string.Empty, inValues, out outValues);
+                if (component.IsActive)
+                {
+                    outValues = AggregateChannelOutputs(inValues, component);
+                }
+                else
+                {
+                    InvokeChannelOnConnector(inValues, component, string.Empty, out outValues);
+                }
+                // set the inValues for the next component
                 inValues = outValues;
             }
             return outValues;
         }
+
+        private static List<object> AggregateChannelOutputs(List<object> inValues, IComponent component)
+        {
+            List<object> outValues;
+            var channelOut = new List<object>();
+            var activeComponent = component as ActiveComponentBase;
+            foreach (var channel in activeComponent.Channels)
+            {
+                InvokeChannelOnConnector(inValues, component, channel.Name, out outValues);
+                channelOut.AddRange(outValues);
+            }
+            outValues = channelOut;
+            return outValues;
+        }
+
+        private static void InvokeChannelOnConnector(List<object> inValues, IComponent component, string channelName, out List<object> outValues)
+        {
+            component.Connector.Execute(channelName, inValues, out outValues);
+        }
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public abstract class ACompositionOperator
     {

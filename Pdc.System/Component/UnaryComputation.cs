@@ -1,6 +1,5 @@
 ﻿namespace Pdc.System.Component
 {
-
     /// <summary>
     ///     Defines a computation that takes exactly one input value (unary)
     /// </summary>

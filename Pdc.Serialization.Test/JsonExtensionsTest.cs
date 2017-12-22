@@ -1,16 +1,15 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Pdc.Serialization.Json;
+using System;
 
 namespace Pdc.Notation.Test
 {
-
     [TestFixture]
     public class JsonExtensionsTest
     {
-        interface IContract
+        private interface IContract
         {
             [JsonProperty("name")]
             string MyName { get; set; }
@@ -25,7 +24,7 @@ namespace Pdc.Notation.Test
             DateTime MyDateTime { get; set; }
         }
 
-        class WithInterfaceContract : IContract
+        private class WithInterfaceContract : IContract
         {
             public string MyName { get; set; }
             public int MyNumber { get; set; }
@@ -33,7 +32,7 @@ namespace Pdc.Notation.Test
             public DateTime MyDateTime { get; set; }
         }
 
-        class WithInlineContract
+        private class WithInlineContract
         {
             [JsonProperty("name")]
             public string TheName { get; set; }
@@ -48,7 +47,7 @@ namespace Pdc.Notation.Test
             public DateTime TheDateTime { get; set; }
         }
 
-        class NoContract
+        private class NoContract
         {
             public string Name { get; set; }
             public int Number { get; set; }
@@ -69,14 +68,15 @@ namespace Pdc.Notation.Test
             };
 
             var expectedJson = $"{{\"name\":\"{test.Name}\",\"number\":{test.Number},\"id\":\"{test.Id}\",\"currentDate\":\"{test.CurrentDate.ToString("O")}\"}}";
-            
+
             var instance = JsonExtensions.ToInstance<NoContract>(expectedJson);
-            //Act 
+            //Act
             var json = test.ToJson();
 
             //Assert
             Assert.AreEqual(expectedJson, json);
         }
+
         [Test]
         public void InlineContractToJsonString()
         {
@@ -91,13 +91,13 @@ namespace Pdc.Notation.Test
 
             var expectedJson = $"{{\"name\":\"{test.TheName}\",\"number\":{test.TheValue},\"id\":\"{test.TheId}\",\"dateTime\":\"{test.TheDateTime.ToString("O")}\"}}";
 
-
-            //Act 
+            //Act
             var json = test.ToJson();
 
             //Assert
             Assert.AreEqual(expectedJson, json);
         }
+
         [Test]
         public void InterfaceContractToJsonString()
         {
@@ -114,10 +114,10 @@ namespace Pdc.Notation.Test
                 MyDateTime = DateTime.Now,
                 MyId = Guid.NewGuid()
             };
-            
+
             var expectedJson = $"{{\"{propName}\":\"{test.MyName}\",\"{propNumber}\":{test.MyNumber},\"{propId}\":\"{test.MyId}\",\"{propDateTime}\":\"{test.MyDateTime.ToString("O")}\"}}";
 
-            //Act 
+            //Act
             var json = test.ToJson();
 
             //Assert
@@ -212,7 +212,7 @@ namespace Pdc.Notation.Test
 
             //Act
             var test = jObject.ToObject<WithInlineContract>();
-            
+
             //Assert
             Assert.AreEqual(name, test.TheName);
             Assert.AreEqual(number, test.TheValue);

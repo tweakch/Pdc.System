@@ -1,7 +1,7 @@
 ﻿namespace Pdc.System
 {
     /// <summary>
-    ///     Defines a mechanism to send data to hosts. 
+    ///     Defines a mechanism to send data to hosts.
     /// </summary>
     public interface IClient
     {

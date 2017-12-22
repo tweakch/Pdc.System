@@ -6,7 +6,7 @@ namespace Pdc.System.Component.Connector
     public interface IUnaryConnector : IConnector
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inValue"></param>
         /// <param name="outValue"></param>
@@ -34,7 +34,7 @@ namespace Pdc.System.Component.Connector
     public interface IUnaryConnector<T> : IConnector
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inValue"></param>
         /// <param name="outValue"></param>

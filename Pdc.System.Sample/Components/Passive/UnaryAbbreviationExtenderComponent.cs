@@ -2,12 +2,14 @@
 
 namespace Pdc.System.Sample.Components.Passive
 {
-    
     /// <summary>
     ///     ActiveComputationUnitImpl implementation of a passive unary component
     /// </summary>
     public class UnaryAbbreviationExtenderComponent : PassiveUnaryComponent<string>
     {
+        /// <summary>
+        ///
+        /// </summary>
         public UnaryAbbreviationExtenderComponent() : base(Execute)
         {
         }

@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using Newtonsoft.Json;
+﻿using Pdc.Serialization.Json;
 using Pdc.System.Component.Connector;
 using Pdc.System.Sample.Components.Active;
 using Pdc.System.Sample.Components.Passive;
@@ -17,19 +16,18 @@ namespace Pdc.System.Sample
             // directly map results to your classes
             var delay = AirportInfoComponent.Execute<AirportInfo>("JFK").Delay;
             // true
-            
+
             // string components together
-            var sequence = PipeConnector.Sequence<AirportInfoComponent, UnaryAbbreviationExtenderComponent>();
+            var sequence = PipeConnector.CreateSequence<AirportInfoComponent, UnaryAbbreviationExtenderComponent>();
             var example = sequence.Execute("JFK");
             // example = {"delay":"true","internationalAirTransportAssociation":"John Fitzgerald Kennedy...
-        }
-    }
-    public class AirportInfo
-    {
-        [JsonProperty]
-        public bool Delay { get; set; }
 
-        [JsonProperty]
-        public string State { get; set; }
+            var username = "chattan07";
+            var password = "dDi7CBNKvq";
+            var sessionId = GeoNamesPostalCodesComponent.Login(username, password);
+            var result = (string)GeoNamesPostalCodesComponent.PostalCode(username, sessionId, "8001");
+
+            var geo = result.ToInstance<GeoInfo>();
+        }
     }
 }

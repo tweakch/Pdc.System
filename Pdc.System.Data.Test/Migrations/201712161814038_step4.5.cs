@@ -1,10 +1,7 @@
-
-using System;
 using System.Data.Entity.Migrations;
 
 namespace Pdc.System.Data.Test.Migrations
 {
-    
     public partial class step45 : DbMigration
     {
         public override void Up()
@@ -13,7 +10,7 @@ namespace Pdc.System.Data.Test.Migrations
             RenameColumn(table: "dbo.Leads", name: "LEAD_ID", newName: "ADR");
             RenameColumn(table: "dbo.Leads", name: "__mig_tmp__0", newName: "LEAD_ID");
         }
-        
+
         public override void Down()
         {
             RenameColumn(table: "dbo.Leads", name: "LEAD_ID", newName: "__mig_tmp__0");

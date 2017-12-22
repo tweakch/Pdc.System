@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using Newtonsoft.Json.Linq;
 
 namespace Pdc.System.Data.Extensions
 {
@@ -28,7 +28,7 @@ namespace Pdc.System.Data.Extensions
 
         /// <summary>
         ///     Creates a DataTable from a <see cref="DbSet{TEntity}" />.
-        ///     <para> 
+        ///     <para>
         ///         The <see cref="DataTable" /> will have a column for every property that the viewSelector returns.
         ///     </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pdc.System.Data.Extensions
                 var propertyName in o.Properties().Select(p => p.Name).Where(name => !dataTable.Columns.Contains(name)))
             {
                 var column = dataTable.Columns.Add(propertyName);
-                column.DataType = typeof (string);
+                column.DataType = typeof(string);
                 //column.MaxLength = 255;
             }
         }

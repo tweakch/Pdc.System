@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Pdc.System.Component.Connector;
 using Pdc.System.Sample.Components.Active;
 using Pdc.System.Sample.Components.Passive;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Pdc.System.Sample.Test
 {
     [TestFixture]
-    public class UnitTest1
+    public class SampleTest
     {
         [Test]
-        public void TestMethod1()
+        public void TestStaticHelper()
         {
             // Arrange
             const string iata = "JFK";
@@ -20,10 +21,11 @@ namespace Pdc.System.Sample.Test
 
             // Assert
             Assert.NotNull(info);
+            Assert.IsInstanceOf(typeof(string), info);
         }
 
         [Test]
-        public void TestMethod2()
+        public void TestGenericExecuteHelper()
         {
             // Arrange
             const string iata = "LAX";
@@ -37,10 +39,28 @@ namespace Pdc.System.Sample.Test
         }
 
         [Test]
+        public void TestInstanceExecute()
+        {
+            var component = new AirportInfoComponent();
+            var channelName = component.Channels.First().Name;
+            var results = component.Execute(channelName, "JFK", "LAX", "ORD", "MIA");
+            Assert.IsInstanceOf<List<object>>(results);
+        }
+
+        [Test]
+        public void TestInstanceConnectorExecute()
+        {
+            var component = new AirportInfoComponent();
+            var channelName = component.Channels.First().Name;
+            var results = component.Execute(channelName, "JFK", "LAX", "ORD");
+            Assert.IsInstanceOf<List<object>>(results);
+        }
+
+        [Test]
         public void TestMethod3()
         {
             // Arrange
-            var sequence = PipeConnector.Sequence<AirportInfoComponent, UnaryAbbreviationExtenderComponent>();
+            var sequence = PipeConnector.CreateSequence<AirportInfoComponent, UnaryAbbreviationExtenderComponent>();
 
             // Act
             var example = sequence.Execute("JFK");
@@ -53,8 +73,8 @@ namespace Pdc.System.Sample.Test
         public void TestMethod4()
         {
             // Arrange
-            var sequence = PipeConnector.Sequence<AirportInfoComponent, UnaryAbbreviationExtenderComponent>();
-            var inverse = PipeConnector.Sequence<UnaryAbbreviationExtenderComponent, AirportInfoComponent>();
+            var sequence = PipeConnector.CreateSequence<AirportInfoComponent, UnaryAbbreviationExtenderComponent>();
+            var inverse = PipeConnector.CreateSequence<UnaryAbbreviationExtenderComponent, AirportInfoComponent>();
 
             // Act
             var example = sequence.Execute("JFK") as List<object>;
@@ -71,19 +91,18 @@ namespace Pdc.System.Sample.Test
         [Test]
         public void TestMethod5()
         {
-            // Arrange
             const string iata = "JFK";
             string result, frameworkResult;
 
-            // Act: we test the functionality of the component like this.
+            // We test the functionality of a component like this.
             UnaryAbbreviationExtenderComponent.Execute(iata, out result);
 
-            // The Pdc.System.Component Framework invokes the component like this.
+            // Components invoke each other like this
             var component = new UnaryAbbreviationExtenderComponent();
-            var connector = (UnaryComputationConnector<string>) component.Connector;
+            var connector = (UnaryComputationConnector<string>)component.Connector;
             connector.Execute(iata, out frameworkResult);
 
-            // Assert
+            //
             Assert.AreEqual("John Fitzgerald Kennedy", result);
             Assert.AreEqual(result, frameworkResult);
         }

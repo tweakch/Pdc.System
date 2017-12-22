@@ -49,7 +49,7 @@ namespace Pdc.System.Component.Connector
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class ConnectorEventArgs : EventArgs
     {
@@ -57,7 +57,7 @@ namespace Pdc.System.Component.Connector
         private List<object> outValues;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inValues"></param>
         /// <param name="outValues"></param>

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Pdc.Serialization.Json
 {
@@ -47,7 +47,7 @@ namespace Pdc.Serialization.Json
         /// <returns></returns>
         public static T ToInstance<T>(this string json)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<T,T>());
+            // initialize mapper per type
             T instance = JsonDeserializer.ToInstance<T>(json);
             return instance;
         }

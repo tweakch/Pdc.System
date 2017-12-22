@@ -1,7 +1,7 @@
-using System.Linq;
-using System.Net.Http;
 using Pdc.Net.Http.Configuration;
 using Pdc.System.Validation;
+using System.Linq;
+using System.Net.Http;
 
 namespace Pdc.Net.Http.Validation
 {
@@ -31,7 +31,6 @@ namespace Pdc.Net.Http.Validation
             }
         }
 
-
         public IValidationResult Validate(HttpContent content, IHttpClientConfiguration configuration)
         {
             IValidationErrorCollection errors = new ValidationErrorCollection();
@@ -45,11 +44,9 @@ namespace Pdc.Net.Http.Validation
                 errors.Add(validationError);
             }
 
-            if (errors.Any()) { return new ValidationFailed(errors);}
+            if (errors.Any()) { return new ValidationFailed(errors); }
             return new ValidationOk();
         }
-
-        
 
         public class InvalidContentTypeError : AValidationError
         {

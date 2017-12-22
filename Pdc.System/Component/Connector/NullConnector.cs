@@ -3,14 +3,14 @@
 namespace Pdc.System.Component.Connector
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class NullConnector : IConnector
     {
         private IComponent _component;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="name"></param>
         /// <param name="inValues"></param>
@@ -19,7 +19,6 @@ namespace Pdc.System.Component.Connector
         {
             outValues = null;
         }
-
 
         /// <summary>
         /// Binds the connector to the given component

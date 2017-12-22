@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Pdc.Serialization.Json;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Pdc.Serialization.Json;
 
 namespace Pdc.System.Data.Transfer
 {
@@ -22,7 +22,7 @@ namespace Pdc.System.Data.Transfer
         }
 
         /// <summary>
-        /// Deserialize from JSON object. 
+        /// Deserialize from JSON object.
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
